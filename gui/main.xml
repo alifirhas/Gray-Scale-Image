@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dialog Color="[0.937 0.937 0.937]" HPosition="center" Name="main" Position="[190 542 596 463]" Resize="off" VPosition="center" windowStyle="normal">
+    <GlobalSrc>%
+% The source code written here will be executed when
+% windows load. Works like 'onLoad' event of other languages.
+%
+# openFile;
+</GlobalSrc>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_open" Position="[145 353 90 22]" String="Open" TooltipString=""># Cari file
+[fname, fpath, fltidx]  = uigetfile ({&quot;*.gif;*.png;*.jpg;*.jpeg&quot;, &quot;Supported Picture Formats&quot;});
+# gabungkan path dan nama file
+file = fullfile(fpath,fname);
+global img = imread(file);
+axes(main.img1);
+# tampilkan gambar
+imshow(img, []);
+axis image off;</uiControl>
+    <uiControl class="buttonCtrl" BackgroundColor="[0.937 0.937 0.937]" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" ForegroundColor="[0.000 0.000 0.000]" GenerateCallBack="true" Name="btn_proses" Position="[360 353 90 22]" String="Proses" TooltipString=""># Cari file
+#[fname, fpath, fltidx]  = uigetfile ({&quot;*.gif;*.png;*.jpg;*.jpeg&quot;, &quot;Supported Picture Formats&quot;});
+# gabungkan path dan nama file
+#file = fullfile(fpath,fname);
+#img = imread(file);
+axes(main.img2);
+# Convert warna menjadi grayscale
+global img;
+gray = rgb2gray(img);
+# tampilkan gambar
+imshow(gray, []);
+axis image off;</uiControl>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" Name="img1" Position="[58 62 236 264]"/>
+    <uiControl class="imgCtrl" FontAngle="normal" FontName="Arial" FontSize="10" FontWeight="normal" Name="img2" Position="[337 65 220 265]"/>
+</dialog>
